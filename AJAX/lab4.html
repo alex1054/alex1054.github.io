@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Interior Design Webpage</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -50,7 +50,7 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#"><b>Interior</b></a>
+      <a class="navbar-brand" href="#"><b>Interior Design</b></a>
     </div>
     <div class="nav navbar-nav">
       <ul class="list-inline">
@@ -58,7 +58,7 @@
         <a class="list-inline-item" href="#">Kitchen</a></li>
         <a class="list-inline-item" href="#">Bedroom</a></li>
         <a class="list-inline-item" href="#">Bathroom</a></li>
-        <a class="list-inline-item" href="#">Other Inspiration</a></li>
+        <a class="list-inline-item" href="#">Inspiration</a></li>
       </ul>
     </div>
   </div>
@@ -66,17 +66,18 @@
 <p>Alexandra Gutierrez<br>501003314</p>
 <div id="images"></div>  
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-  var images = ["curtains.jpg", "living-room.jpg", "lamp.jpg", "bookshelf.jpg"];
+  var imgs = ["curtains.jpg", "living-room.jpg", "lamp.jpg", "bookshelf.jpg"];
   $(function () {
       var i = 0;
-      $("#images").html('<img src="images/' + images[i] + '"/>');
+      $('<img src="images/' + imgs[i] + '"/>').appendTo("#images");
+      $("#images").html('<img src="images/' + imgs[i] + '"/>');
       setInterval(function () {
           i++;
-          if(i == images.length) {
+          if(i == imgs.length) {
               i = 0;
           }
           $("#images").fadeOut("slow", function () {
-              $(this).html('<img src="images/' + images[i] + '"/>');
+              $(this).html('<img src="images/' + imgs[i] + '"/>');
               $(this).fadeIn("slow");
           });
       }, 5000);
