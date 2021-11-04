@@ -74,7 +74,7 @@
           if(i == images.length) {
               i = 0;
           }
-          $("images").fadeOut("slow", function () {
+          $("#images").fadeOut("slow", function () {
               $(this).css("background-image", "url(images/" + images[i] + ")");
               $(this).fadeIn("slow");
           });
