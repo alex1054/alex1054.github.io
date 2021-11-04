@@ -70,16 +70,16 @@
   $(function () {
       var i = 0;
       $('<img src="/images/' + imgs[i] + '"/>').appendTo("#images");
-      $("#images").html('<img src="/images/' + imgs[i] + '"/>');
+      //$("#images").html('<img src="/images/' + imgs[i] + '"/>');
       setInterval(function () {
           i++;
           if(i == imgs.length) {
               i = 0;
           }
-          $("#images").fadeOut("slow", function () {
-              $(this).html('<img src="/images/' + imgs[i] + '"/>');
-              $(this).fadeIn("slow");
-          });
+          //$("#images").fadeOut("slow", function () {
+          //    $(this).html('<img src="/images/' + imgs[i] + '"/>');
+          //    $(this).fadeIn("slow");
+          //});
       }, 5000);
     });
 </script>
