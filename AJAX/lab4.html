@@ -50,14 +50,15 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#"><b>Recipes</b></a>
+      <a class="navbar-brand" href="#"><b>Interior</b></a>
     </div>
     <div class="nav navbar-nav">
       <ul class="list-inline">
-        <a class="list-inline-item" href="#">This Week</a></li>
-        <a class="list-inline-item" href="#">Oct 17-23</a></li>
-        <a class="list-inline-item" href="#">Oct 10-16</a></li>
-        <a class="list-inline-item" href="#">Oct 4-9</a></li>
+        <a class="list-inline-item" href="#">Living Room</a></li>
+        <a class="list-inline-item" href="#">Kitchen</a></li>
+        <a class="list-inline-item" href="#">Bedroom</a></li>
+        <a class="list-inline-item" href="#">Bathroom</a></li>
+        <a class="list-inline-item" href="#">Other Inspiration</a></li>
       </ul>
     </div>
   </div>
@@ -68,14 +69,14 @@
   var images = ["curtains.jpg", "living-room.jpg", "lamp.jpg", "bookshelf.jpg"];
   $(function () {
       var i = 0;
-      $("#images").css("background-image", "url(images/" + images[i] + ")");
+      $("#images").html('<img src="images/' + images[i] + '"/>');
       setInterval(function () {
           i++;
           if(i == images.length) {
               i = 0;
           }
           $("#images").fadeOut("slow", function () {
-              $(this).css("background-image", "url(images/" + images[i] + ")");
+              $(this).html('<img src="images/' + images[i] + '"/>');
               $(this).fadeIn("slow");
           });
       }, 5000);
