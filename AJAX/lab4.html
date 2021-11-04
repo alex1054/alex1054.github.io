@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+      $(document).ready(function(){
+        $("li.active").hover(function(){
+            $("p.active").hide();
+        });
+      });
+  </script>
+  <style ref="stylesheet" type="text/css">
+    .navbar-default {
+      background-color: mistyrose;
+      font-family:Georgia, 'Times New Roman', Times, serif;
+      font-stretch: wider;
+    }
+    .navbar-brand {
+      color: peru;
+      padding-top: 20%;
+      padding-bottom: 20%;
+    }
+    .navbar-brand:hover {
+      background-color: lavenderblush;
+    }
+    .list-inline {
+      display: inline-flexbox;
+    }
+    .list-inline-item {
+      padding-top: 10%;
+      padding-bottom: 10%;
+      color: peru;
+      display: inline-flex;
+      justify-content: space-between;
+    }
+    .list-inline-item:hover {
+      background-color: lavenderblush;
+      color: white;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><b>Recipes</b></a>
+    </div>
+    <div class="nav navbar-nav">
+      <ul class="list-inline">
+        <a class="list-inline-item" href="#">This Week</a></li>
+        <a class="list-inline-item" href="#">Oct 17-23</a></li>
+        <a class="list-inline-item" href="#">Oct 10-16</a></li>
+        <a class="list-inline-item" href="#">Oct 4-9</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<p>Alexandra Gutierrez<br>501003314</p>
+<div id="images"></div>  
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  var images = ["curtains.jpg", "living-room.jpg", "lamp.jpg", "bookshelf.jpg"];
+  $(function () {
+      var i = 0;
+      $("#images").css("background-image", "url(images/" + images[i] + ")");
+      setInterval(function () {
+          i++;
+          if(i == images.length) {
+              i = 0;
+          }
+          $("images").fadeOut("slow", function () {
+              $(this).css("background-image", "url(images/" + images[i] + ")");
+              $(this).fadeIn("slow");
+          });
+      }, 20000);
+    });
+</script>
+</body>
+</html>
