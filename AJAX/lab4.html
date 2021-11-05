@@ -88,14 +88,24 @@
 </script>
 <img id="images_1" ></img>
 
-<script type="text/javascript">
-  $(document).ready(function (){
-    $("button").click(function(){
-      $("#images_2").load('lamp.jpg');
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function() {
+    $("#btn").click(function() {
+      $("#images_2").load({
+        type: "GET",
+        url: "3.jpg",
+        contentType: "image/jpg",
+        asyn: true,
+        success: function() {
+          $("#images_2").append('<img src="3.jpg" />');
+        }
+      });
     });
   });
 </script>
-<img id="images_2" ></img>
+<div id="images_2">first content</div>
+<button id="btn">Click to load</button>
 
 <script type="text/javascript">
   var imgs = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
