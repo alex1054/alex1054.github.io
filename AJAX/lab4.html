@@ -61,7 +61,7 @@
   var imgs = ["curtains.jpg", "living-room.jpg", "lamp.jpg", "bookshelf.jpg"];
   $(function () {
       var i = 0;
-      $("#images").html('<img src="' + imgs[i] + '">');
+      $("#images_1").html('<img src="' + imgs[i] + '">');
       setInterval(function () {
           i++;
           if(i == imgs.length) {
@@ -70,13 +70,15 @@
       }, 5000);
     });
 </script>
+<img id="images_1" ></img>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
   $(document).ready(function (){
     $("button").click(function(){
-      $("#images").load('curtains.jpg');
+      $("#images_2").load('curtains.jpg');
     });
   });
 </script>
+<img id="images_2" ></img>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
   var imgs = ["curtains.jpg", "living-room.jpg", "lamp.jpg", "bookshelf.jpg"];
   for (i = 0; i < imgs.length; i++) {
@@ -86,13 +88,13 @@
       contentType: 'image/jpg',
       async: true,
       success: function (data) {
-        $("#images").attr("src", 'data:image/jpg;base64,'+data);
+        $("#images_3").attr("src", 'data:image/jpg;base64,'+data);
       }
     });
   }
 </script>
 <button>Click!</button>
-<image id="images" >
+<img id="images_3" ></img>
 <div id="desc">Ceiling-mounted track curtains hanging in a moody living room.</div>
 </body>
 </html>
