@@ -64,24 +64,6 @@
   </div>
 </nav>
 <p>Alexandra Gutierrez<br>501003314</p> 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-  var imgs = ["curtains.jpg", "living-room.jpg", "lamp.jpg", "bookshelf.jpg"];
-  $(function () {
-      var i = 0;
-      //$('<img src="/images/' + imgs[i] + '"/>').appendTo("#images");
-      $("#images").html('<img src="images/' + imgs[i] + '" />');
-      setInterval(function () {
-          i++;
-          if(i == imgs.length) {
-              i = 0;
-          }
-          $("#images").fadeOut("slow", function () {
-              $(this).html('<img src="images/' + imgs[i] + '" />');
-              $(this).fadeIn("slow");
-          });
-      }, 5000);
-    });
-</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
   $(document).ready(function (){
     $("button").click(function(){
