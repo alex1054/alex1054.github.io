@@ -69,8 +69,8 @@
   var imgs = ["curtains.jpg", "living-room.jpg", "lamp.jpg", "bookshelf.jpg"];
   $(function () {
       var i = 0;
-      $('<img src="/images/' + imgs[i] + '"/>').appendTo("#images");
-      //$("#images").html('<img src="/images/' + imgs[i] + '"/>');
+      //$('<img src="/images/' + imgs[i] + '"/>').appendTo("#images");
+      $("#images").html('<img src="/images/' + imgs[i] + '"/>');
       setInterval(function () {
           i++;
           if(i == imgs.length) {
