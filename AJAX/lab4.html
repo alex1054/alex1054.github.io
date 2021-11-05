@@ -36,6 +36,21 @@
       color: white;
       display: inline-block;
     }
+    .container {
+      position: relative;
+      width: 450px;
+      height: 350px;
+      border: 1px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    .loader {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 <body>
@@ -61,7 +76,7 @@
   var imgs = ["curtains.jpg", "living-room.jpg", "lamp.jpg", "bookshelf.jpg"];
   $(function () {
       var i = 0;
-      $("#images_1").html('<img src="' + imgs[i] + '">');
+      $("#images_1").html('<img id="images_1" src="'+imgs[i]+'">');
       setInterval(function () {
           i++;
           if(i == imgs.length) {
@@ -74,7 +89,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
   $(document).ready(function (){
     $("button").click(function(){
-      $("#images_2").load('curtains.jpg');
+      $("#images_2").load('lamp.jpg');
     });
   });
 </script>
@@ -88,13 +103,43 @@
       contentType: 'image/jpg',
       async: true,
       success: function (data) {
-        $("#images_3").attr("src", 'data:image/jpg;base64,'+data);
+        $("#images_4").attr('src', 'data:image/jpg;base64,'+data);
       }
     });
   }
 </script>
 <button>Click!</button>
+
+<div class="container">
+  Click the button to update.
+  <div class="loader"></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  var imgs = ["curtains.jpg", "living-room.jpg", "lamp.jpg", "bookshelf.jpg"];
+  var res = {
+    loader: $('<div/>', {class: 'loader'}),
+    container: $('.container'),
+    image: $('<img/>', {attr: 'src='+imgs[0]})
+  }
+  
+  $('button').on('click', function() {
+    $.ajax({
+      url: 'lamp.jpg',
+      beforeSend: function() {
+        res.container.append(res.loader);
+      },
+      success: function() {
+        for (i = 0; i<imgs.length; i++) {
+          res.loader.append(res.image.attr('src',imgs[i]));
+        }
+      }
+    });
+  });
+</script>
+
 <img id="images_3" ></img>
 <div id="desc">Ceiling-mounted track curtains hanging in a moody living room.</div>
+<img id="images_4" src="curtains.jpg"></img>
 </body>
 </html>
