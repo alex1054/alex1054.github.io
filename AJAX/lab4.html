@@ -7,13 +7,6 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script>
-      $(document).ready(function(){
-        $("li.active").hover(function(){
-            $("p.active").hide();
-        });
-      });
-  </script>
   <style ref="stylesheet" type="text/css">
     .navbar-default {
       background-color: mistyrose;
@@ -68,7 +61,7 @@
   var imgs = ["curtains.jpg", "living-room.jpg", "lamp.jpg", "bookshelf.jpg"];
   $(function () {
       var i = 0;
-      $("#images").html('<img src="images/' + imgs[i] + '">');
+      $("#images").html('<img src="' + imgs[i] + '">');
       setInterval(function () {
           i++;
           if(i == imgs.length) {
@@ -80,7 +73,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
   $(document).ready(function (){
     $("button").click(function(){
-      $("#images").load('images/curtains.jpg');
+      $("#images").load('curtains.jpg');
     });
   });
 </script>
@@ -89,16 +82,17 @@
   for (i = 0; i < imgs.length; i++) {
     $.ajax({
       type: 'GET',
-      url: 'images/'+imgs[i],
+      url: imgs[i],
       contentType: 'image/jpg',
       async: true,
       success: function (data) {
-        $("#images").attr("src", 'data:image/jpg;base64'+data);
+        $("#images").attr("src", 'data:image/jpg;base64,'+data);
       }
     });
   }
 </script>
 <button>Click!</button>
-<image id="images">
+<image id="images" >
+<div id="desc">Ceiling-mounted track curtains hanging in a moody living room.</div>
 </body>
 </html>
