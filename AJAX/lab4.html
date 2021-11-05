@@ -63,19 +63,19 @@
   var desc = ["img1.txt", "img2.txt", "img3.txt", "img4.txt"];
   $(function () {
       var i = 1;
-      $("#images_1").html('<img id="images_1" src="'+imgs[0]+'" />');
+      $("#images").html('<img src="'+imgs[0]+'" />');
       $("#desc").load(""+desc[0]+"");
       setInterval(function () {
-          $("#images_1").html('<img id="images_1" src="'+imgs[i]+'" />');
+          $("#images").html('<img src="'+imgs[i]+'" />');
           $("#desc").load(""+desc[i]+"");
           i++;
           if(i == imgs.length) {
               i = 0;
           }
-      }, 10000);
+      }, 20000);
     });
 </script>
-<div id="images_1" ></div>
+<div id="images" ></div>
 <div id="desc"></div>
 
 </body>
