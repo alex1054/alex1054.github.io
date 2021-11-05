@@ -75,12 +75,13 @@
 
 <script type="text/javascript">
   var imgs = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
+  var desc = ["img1.txt", "img2.txt", "img3.txt", "img4.txt"];
   $(function () {
       var i = 0;
       //$("#images_1").html('<img id="images_1" src="'+imgs[i]+'" />');
       setInterval(function () {
           $("#images_1").html('<img id="images_1" src="'+imgs[i]+'" />');
-          $("#desc").load("img"+i+".txt");
+          $("#desc").load(""+desc[i]+"");
           i++;
           if(i == imgs.length) {
               i = 0;
