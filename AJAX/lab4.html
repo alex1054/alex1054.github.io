@@ -86,7 +86,7 @@
       }, 5000);
     });
 </script>
-<img id="images_1" ></img>
+<div id="images_1" ></div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script>
@@ -123,10 +123,11 @@
 </script>
 
 <script type="text/javascript">
-  //var imgs = ["curtains.jpg", "living-room.jpg", "lamp.jpg", "bookshelf.jpg"];
+  var imgs = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
   $(document).ready( function() {
     $("#container").each( function(i) {
-      $(this).append('<img src="'+(++i)+'.jpg" />');
+      $(this).append('<img src="'+imgs[i]+'" />');
+      ++i;
     });
   });
 </script>
@@ -137,7 +138,6 @@
 <div id="container">2</div>
 <div id="container">3</div>
 <div id="container">4</div>
-<div id="container">5</div>
 <img id="images_4"/>
 <div id="desc">Ceiling-mounted track curtains hanging in a moody living room.</div>
 </body>
