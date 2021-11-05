@@ -79,7 +79,9 @@
       var i = 0;
       $("#images_1").html('<img id="images_1" src="'+imgs[i]+'" />');
       setInterval(function () {
+          //added two line below
           i++;
+          $("#images_1").html('<img id="images_1" src="'+imgs[i]+'" />');
           if(i == imgs.length) {
               i = 0;
           }
@@ -115,8 +117,8 @@
       url: imgs[i],
       contentType: 'image/jpg',
       async: true,
-      success: function (data) {
-        $("#images_4").attr("src", data);
+      success: function (url) {
+        $("#images_4").attr("src", url);
       }
     });
   }
@@ -125,8 +127,9 @@
 <script type="text/javascript">
   var imgs = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
   $(document).ready( function() {
-    $("#container").each( function(i) {
-      $(this).append('<img src="'+imgs[i]+'" />');
+    //$("#container").each( function(i) { }
+    imgs.each( function(i) {
+      $("#container").append('<img src="'+imgs+'" />');
       ++i;
     });
   });
