@@ -80,6 +80,7 @@
       //$("#images_1").html('<img id="images_1" src="'+imgs[i]+'" />');
       setInterval(function () {
           $("#images_1").html('<img id="images_1" src="'+imgs[i]+'" />');
+          $("#desc").load("img"+i+".txt");
           i++;
           if(i == imgs.length) {
               i = 0;
@@ -88,7 +89,7 @@
     });
 </script>
 <div id="images_1" ></div>
-
+<div id="desc"></div>
 <script type="text/javascript">
   $(document).ready(function() {
     $("#btn").click(function() {
@@ -135,6 +136,5 @@
 
 <div id="container">1</div>
 
-<div id="desc">Ceiling-mounted track curtains hanging in a moody living room.</div>
 </body>
 </html>
