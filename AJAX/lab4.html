@@ -36,21 +36,6 @@
       color: white;
       display: inline-block;
     }
-    .container {
-      position: relative;
-      width: 450px;
-      height: 350px;
-      border: 1px;
-      padding: 10px;
-      margin-top: 10px;
-    }
-    .loader {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
   </style>
 </head>
 <body>
@@ -77,8 +62,9 @@
   var imgs = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
   var desc = ["img1.txt", "img2.txt", "img3.txt", "img4.txt"];
   $(function () {
-      var i = 0;
-      //$("#images_1").html('<img id="images_1" src="'+imgs[i]+'" />');
+      var i = 1;
+      $("#images_1").html('<img id="images_1" src="'+imgs[0]+'" />');
+      $("#desc").load(""+desc[0]+"");
       setInterval(function () {
           $("#images_1").html('<img id="images_1" src="'+imgs[i]+'" />');
           $("#desc").load(""+desc[i]+"");
@@ -91,51 +77,6 @@
 </script>
 <div id="images_1" ></div>
 <div id="desc"></div>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("#btn").click(function() {
-      $("#images_2").load({
-        type: "GET",
-        url: "3.jpg",
-        contentType: "image/jpg",
-        asyn: true,
-        success: function() {
-          $("#images_2").append('<img src="3.jpg" />');
-        }
-      });
-    });
-  });
-</script>
-<div id="images_2">first content</div>
-<button id="btn">Click to load</button>
-
-<script type="text/javascript">
-  var imgs = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
-  for (i = 0; i < imgs.length; i++) {
-    $.ajax({
-      type: "GET",
-      url: imgs[i],
-      contentType: "image/jpg",
-      async: true,
-      success: function (data) {
-        $("#images_4").attr('src', "data:image/jpg;base64,"+data);
-      }
-    });
-  }
-</script>
-
-<script type="text/javascript">
-  var imgs = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
-  $(document).ready( function() {
-    //$("#container").each( function(i) { }
-    imgs.each( function(i) {
-      $("#container").append('<img src="'+imgs+'" />');
-      i++;
-    });
-  });
-</script>
-
-<div id="container">1</div>
 
 </body>
 </html>
