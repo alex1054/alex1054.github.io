@@ -12,7 +12,7 @@
       font-family: Georgia, 'Times New Roman', Times, serif;
       font-size: smaller;
     }
-    .navbar-default {
+    .navbar {
       background-color: black;
       font-family:Georgia, 'Times New Roman', Times, serif;
       font-stretch: wider;
@@ -24,9 +24,11 @@
       padding-top: 20%;
       padding-bottom: 20%;
     }
-    .navbar-brand:hover {
-      background-color: blanchedalmond;
-      color: black;
+    .navbar-header {
+      background-color: black;
+      color: blanchedalmond;
+      padding: 20px;
+      text-align: center;
     }
     .list-inline {
       display: inline-flexbox;
@@ -49,22 +51,34 @@
       border: 10px;
       padding: 10px;
       align-content: center;
-      box-shadow: dimgrey;
     }
     img {
       height: 100%;
       width: 100%;
       object-fit: contain;
     }
+    .column1 {
+      float: left;
+      width: 33.33%;
+      padding: 15px;
+    }
+    .column2 {
+      float: left;
+      width: 66.66%;
+      padding: 15px;
+    }
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
   </style>
 </head>
 <body>
 
-<nav class="navbar navbar-default">
+<nav class="navbar">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#"><b>Interior Design</b></a>
-    </div>
+    <div class="navbar-header"><b>Interior Design</b></div>
     <div class="nav navbar-nav">
       <ul class="list-inline">
         <a class="list-inline-item" href="#">Living Room</a></li>
@@ -95,8 +109,12 @@
       }, 20000);
     });
 </script>
-<div class="display" id="images" style="height: 500px; width: 500px"></div>
-<div id="desc"></div>
+<div class="row">
+  <div class="column1" id="images" style="height: 500px; width: 500px"></div>
+  <div class="column2" id="desc"></div>
+</div>
+
+
 
 </body>
 </html>
