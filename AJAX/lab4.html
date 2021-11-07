@@ -105,30 +105,69 @@
 </nav>
 <p>Alexandra Gutierrez<br>501003314</p> 
 
-<script type="text/javascript">
+<script>
   var imgs = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
   var desc = ["img1.txt", "img2.txt", "img3.txt", "img4.txt"];
   $(function () {
-      var i = 1;
-      $("#images").html('<img src="'+imgs[0]+'" />');
-      $("#desc").load(""+desc[0]+"");
-      setInterval(function () {
-          $("#images").html('<img src="'+imgs[i]+'" />');
-          $("#desc").load(""+desc[i]+"");
-          i++;
-          if(i == imgs.length) {
-              i = 0;
-          }
-      }, 20000);
+    var i = 0;
+    $.ajax({
+      url: imgs[i],
+      cache: false,
+      xhr:function() {
+        var xhr = new XMLHttpRequest();
+        xhr.responseType = 'blob'
+        return xhr;
+      },
+      success: function(data) {
+        var img = document.getElementById('img');
+        var url = window.URL || window.webkitURL;
+        img.src = url.createObjectURL(data);
+      },
+      error: function() {
+  
+      }
     });
+    $("#desc").load(""+desc[i]+"");
+    i++;
+
+    setInterval(function () {
+      i++;
+      if(i == imgs.length) {
+        i = 0;
+      };
+      $.ajax({
+      url: imgs[i],
+      cache: false,
+      xhr:function() {
+        var xhr = new XMLHttpRequest();
+        xhr.responseType = 'blob'
+        return xhr;
+      },
+      success: function(data) {
+        var img = document.getElementById('img');
+        var url = window.URL || window.webkitURL;
+        img.src = url.createObjectURL(data);
+      },
+      error: function() {
+  
+      }
+      });
+      $("#desc").load(""+desc[i]+"");
+    }, 20000);
+  });
 </script>
+
 <div class="row">
+
   <div class="column_main">
     <h3>INSPIRATION THIS WEEK</h3>
     <p>Thursday, November 4th 2021</p>
-    <div class="img_container" id="images" style="height: 500px; width: 500px"></div>
-    <div id="desc"></div>
+    <div class="img_container" id="images" style="height: 500px; width: 500px">
+      <img id="img">
+      <div id="desc"></div>
+    </div>
   </div>
+
   <div class="column">
 
     <div class="article">
@@ -159,61 +198,5 @@
 
   </div>
 </div>
-
-<script>
-  var imgs = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
-  var desc = ["img1.txt", "img2.txt", "img3.txt", "img4.txt"];
-  $(function () {
-    var i = 0;
-    $.ajax({
-      url: imgs[i],
-      cache: false,
-      xhr:function() {
-        var xhr = new XMLHttpRequest();
-        xhr.responseType = 'blob'
-        return xhr;
-      },
-      success: function(data) {
-        var img = document.getElementById('img');
-        var url = window.URL || window.webkitURL;
-        img.src = url.createObjectURL(data);
-      },
-      error: function() {
-  
-      }
-    });
-    $("#desc_test").load(""+desc[i]+"");
-    i++;
-
-    setInterval(function () {
-      i++;
-      if(i == imgs.length) {
-        i = 0;
-      };
-      $.ajax({
-      url: imgs[i],
-      cache: false,
-      xhr:function() {
-        var xhr = new XMLHttpRequest();
-        xhr.responseType = 'blob'
-        return xhr;
-      },
-      success: function(data) {
-        var img = document.getElementById('img');
-        var url = window.URL || window.webkitURL;
-        img.src = url.createObjectURL(data);
-      },
-      error: function() {
-  
-      }
-      });
-      $("#desc_test").load(""+desc[i]+"");
-    }, 20000);
-  });
-</script>
-<div id="test" style="height: 500px; width: 500px;">
-  <img id="img">
-</div>
-<div id="desc_test"></div>
 </body>
 </html>
