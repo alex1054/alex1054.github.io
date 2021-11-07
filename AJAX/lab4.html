@@ -161,16 +161,26 @@
 </div>
 
 <script>
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("test").innerHTML = '<img src="data:image/jpg;base64,'+
-      this.response+'">';
+  $.ajax({
+    url: '1.jpg',
+    cache: false,
+    xhr:function() {
+      var xhr = new XMLHttpRequest();
+      xhr.responseType = 'blob'
+      return xhr;
+    },
+    success: function(data) {
+      var img = document.getElementById('img');
+      var url = window.URL || window.webkitURL;
+      img.src = url.createObjectURL(data);
+    },
+    error: function() {
+    
     }
-  };
-  xhttp.open("GET", "1.jpg", true);
-  xhttp.send();
+  });
 </script>
-<div id="test" style="height: 500px; width: 500px;"></div>
+<div id="test" style="height: 500px; width: 500px;">
+  <img id="img">
+</div>
 </body>
 </html>
