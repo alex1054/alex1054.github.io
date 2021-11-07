@@ -8,6 +8,9 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style ref="stylesheet" type="text/css">
+    body {
+      background-color: antiquewhite;
+    }
     p, h1 {
       font-family: Georgia, 'Times New Roman', Times, serif;
       font-size: small;
@@ -64,12 +67,18 @@
       width: 100%;
       object-fit: contain;
       border: black;
+      border-width: thick;
       padding-left: 20px;
     }
     .column {
       float: left;
       width: 28%;
       padding: 15px;
+    }
+    .column_main {
+      width: 72%;
+      padding: 15px;
+
     }
     .row:after {
       content: "";
@@ -114,8 +123,12 @@
     });
 </script>
 <div class="row">
-  <div class="column" id="images" style="height: 500px; width: 500px"></div>
-  <div class="column" id="desc"></div>
+  <div class="column_main">
+    <h3>INSPIRATION THIS WEEK</h3>
+    <p>Thursday, November 4th 2021</p>
+    <div id="images" style="height: 500px; width: 500px"></div>
+    <div id="desc"></div>
+  </div>
   <div class="column">
     <h3>Trending Interiors</h3>
     <h2><a class="headline" href="#">Vintage Is Here To Stay</a></h2>
