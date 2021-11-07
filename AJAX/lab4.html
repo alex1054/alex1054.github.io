@@ -65,7 +65,6 @@
       height: 100%;
       width: 100%;
       object-fit: contain;
-      padding-left: 20px;
     }
     .img_container {
       background-color: white;
@@ -168,8 +167,8 @@
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("test").innerHTML =
-      this.response;
+      document.getElementById("test").innerHTML = '<img src="data:image/jpg;base64,'+
+      this.response+'">';
     }
   };
   xhttp.open("GET", "1.jpg", true);
