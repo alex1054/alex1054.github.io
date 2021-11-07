@@ -161,26 +161,59 @@
 </div>
 
 <script>
-  $.ajax({
-    url: '1.jpg',
-    cache: false,
-    xhr:function() {
-      var xhr = new XMLHttpRequest();
-      xhr.responseType = 'blob'
-      return xhr;
-    },
-    success: function(data) {
-      var img = document.getElementById('img');
-      var url = window.URL || window.webkitURL;
-      img.src = url.createObjectURL(data);
-    },
-    error: function() {
-    
-    }
+  var imgs = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
+  var desc = ["img1.txt", "img2.txt", "img3.txt", "img4.txt"];
+  $(function () {
+    var i = 0;
+    $.ajax({
+      url: imgs[i],
+      cache: false,
+      xhr:function() {
+        var xhr = new XMLHttpRequest();
+        xhr.responseType = 'blob'
+        return xhr;
+      },
+      success: function(data) {
+        var img = document.getElementById('img');
+        var url = window.URL || window.webkitURL;
+        img.src = url.createObjectURL(data);
+      },
+      error: function() {
+  
+      }
+    });
+    $("#desc_test").load(""+desc[i]+"");
+    i++;
+
+    setInterval(function () {
+      i++;
+      if(i == imgs.length) {
+        i = 0;
+      };
+      $.ajax({
+      url: imgs[i],
+      cache: false,
+      xhr:function() {
+        var xhr = new XMLHttpRequest();
+        xhr.responseType = 'blob'
+        return xhr;
+      },
+      success: function(data) {
+        var img = document.getElementById('img');
+        var url = window.URL || window.webkitURL;
+        img.src = url.createObjectURL(data);
+      },
+      error: function() {
+  
+      }
+      });
+      $("#desc_test").load(""+desc[i]+"");
+    }, 20000);
   });
 </script>
 <div id="test" style="height: 500px; width: 500px;">
   <img id="img">
 </div>
+<div id="desc_test"></div>
 </body>
 </html>
